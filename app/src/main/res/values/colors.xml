@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="red">#FF1300</color>
+    <color name="bg_green">#006b53</color>
+    <color name="white">#FFFFFF</color>
+    <color name="dark">#000000</color>
+    <color name="lw_green">#00a480</color>
+
+
+    <color name="header">#DB001B</color> <!-- #FFFFFF -->
+    <color name="text_header">#F5F5F5</color>
+    <color name="line">#34000000</color> <!-- #000000 -->
+    <color name="button">#00a480</color> <!-- #00a480 -->
+    <color name="background">#F5F5F5</color> <!-- #006b53 -->
+
+</resources>
