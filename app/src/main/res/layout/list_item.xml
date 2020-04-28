@@ -46,13 +46,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textSize="10dp"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1" />
+        app:layout_constraintVertical_bias="0.9" />
 
     <ImageView
         android:id="@+id/ivRul"
@@ -72,7 +73,7 @@
         android:id="@+id/tvRul"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -100,7 +101,7 @@
         android:id="@+id/tvCar"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -129,7 +130,7 @@
         android:id="@+id/tvKolesa"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -158,7 +159,7 @@
         android:id="@+id/tvMaslo"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -186,7 +187,7 @@
         android:id="@+id/tvAkkum"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -214,7 +215,7 @@
         android:id="@+id/tvOboroty"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -242,7 +243,7 @@
         android:id="@+id/tvBenzin"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
@@ -270,7 +271,7 @@
         android:id="@+id/tvTemper"
         android:layout_width="30dp"
         android:layout_height="15dp"
-        android:textSize="8dp"
+        android:textSize="10dp"
         android:text="TextVie"
 
         app:layout_constraintBottom_toBottomOf="parent"
