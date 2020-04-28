@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 
 public class DataDB {
-    public static final int DATABASE_VERSION = 1;
+    public static final int DATABASE_VERSION = 2;
     public static final String  DATABASE_NAME = "dataDB";
     public static final String  TABLE_LOGS = "logs";
 

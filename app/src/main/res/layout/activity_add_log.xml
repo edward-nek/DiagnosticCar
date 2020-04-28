@@ -114,9 +114,11 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textSize="10dp"
         android:hint="Давление в шинах:"
+
+        android:maxLength="3"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
@@ -145,9 +147,11 @@
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textSize="10dp"
         android:hint="Давление масла:"
+
+        android:maxLength="4"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
@@ -210,9 +214,11 @@
         android:layout_width="105dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textSize="10dp"
         android:hint="Напряжение в сети:"
+
+        android:maxLength="4"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -245,6 +251,8 @@
         android:textSize="10dp"
         android:hint="Обороты двигателя:"
 
+        android:maxLength="4"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -272,9 +280,11 @@
         android:layout_width="105dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:textSize="10dp"
         android:hint="Расход бензина:"
+
+        android:maxLength="4"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -306,6 +316,8 @@
         android:inputType="number"
         android:textSize="10dp"
         android:hint="Температура ДВС:"
+
+        android:maxLength="3"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"

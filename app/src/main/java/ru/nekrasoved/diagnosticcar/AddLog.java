@@ -45,6 +45,32 @@ public class AddLog extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+        //скрыть панель навигации начало
+
+        final int flags = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY;
+
+        getWindow().getDecorView().setSystemUiVisibility(flags);
+
+        final View decorView = getWindow().getDecorView();
+        decorView
+                .setOnSystemUiVisibilityChangeListener(new View.OnSystemUiVisibilityChangeListener()
+                {
+
+                    @Override
+                    public void onSystemUiVisibilityChange(int visibility)
+                    {
+                        if((visibility & View.SYSTEM_UI_FLAG_FULLSCREEN) == 0)
+                        {
+                            decorView.setSystemUiVisibility(flags);
+                        }
+                    }
+                });
+
+        //скрыть панель навигации конец
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_log);
 
@@ -86,17 +112,22 @@ public class AddLog extends AppCompatActivity {
         btSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                boolean check;
+
+
                 if ((etDate.getText().toString().length() > 0)&&(etTime.getText().toString().length() > 0)&&
                         (etKolesa.getText().toString().length() > 0)&&(etMaslo.getText().toString().length() > 0)&&
                         (etAkkum.getText().toString().length() > 0) &&(etOboroty.getText().toString().length() > 0)&&
                         (etBenzin.getText().toString().length() > 0)&&(etTemper.getText().toString().length() > 0)) {
 
-                    saveLog();
+                    if (checkInput()){
+                        saveLog();
 
-                    Intent intent = new Intent(AddLog.this, MainActivity.class);
-                    startActivity(intent);
-                    overridePendingTransition(0, 0);
-                    finish();
+                        Intent intent = new Intent(AddLog.this, MainActivity.class);
+                        startActivity(intent);
+                        overridePendingTransition(0, 0);
+                        finish();
+                    }
                 }
                 else {
                     Toast.makeText(AddLog.this,"Для начала заполните поля!", Toast.LENGTH_LONG).show();
@@ -190,6 +221,58 @@ public class AddLog extends AppCompatActivity {
         overridePendingTransition(0, 0);
         finish();
         return true;
+    }
+
+    public boolean checkInput(){
+        boolean check = true;
+        String errorLog = "Измените вводимые данные: \n";
+
+        float oboroty = Float.valueOf(etOboroty.getText().toString());
+        float kolesa = Float.valueOf(etKolesa.getText().toString());
+        float akkum = Float.valueOf(etAkkum.getText().toString());
+        float temper = Float.valueOf(etTemper.getText().toString());
+        float benzin = Float.valueOf(etBenzin.getText().toString());
+        float maslo = Float.valueOf(etMaslo.getText().toString());
+        if (oboroty > 8000){
+            check = false;
+            errorLog += "Обороты двигателя <= 8000" + "\n";
+        }
+        if (kolesa > 3){
+            check = false;
+            errorLog += "Давление в шинах <= 3" + "\n";
+        }
+        if (akkum > 20){
+            check = false;
+            errorLog += "Напряжение в сети <= 20" + "\n";
+        }
+        if (temper > 150){
+            check = false;
+            errorLog += "Температура двигателя <= 150" + "\n";
+        }
+        if (benzin > 30){
+            check = false;
+            errorLog += "Расход бензина <= 30" + "\n";
+        }
+        if (maslo > 10){
+            check = false;
+            errorLog += "Давление масла < 10" + "\n";
+        }
+
+        if (!check){
+            Toast.makeText(AddLog.this, errorLog, Toast.LENGTH_LONG).show();
+        }
+        return check;
+    }
+
+    //отслеживание нажатий на экран
+
+    @Override
+    public void onWindowFocusChanged(boolean hasFocus)
+    {
+        super.onWindowFocusChanged(hasFocus);
+        getWindow().getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+                | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+                | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
     }
 
 }
