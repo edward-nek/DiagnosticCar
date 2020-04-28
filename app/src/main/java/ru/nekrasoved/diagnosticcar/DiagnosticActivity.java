@@ -1,8 +1,15 @@
 package ru.nekrasoved.diagnosticcar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDialogFragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
@@ -96,9 +103,14 @@ public class DiagnosticActivity extends AppCompatActivity {
         btHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                spisokProblem = new ArrayList<>();
+
                 setDiagnos();
                 getDiagnos();
-                Toast.makeText(DiagnosticActivity.this, myDiagnos, Toast.LENGTH_LONG).show();
+
+                MyDialogFragment myDialogFragment = new MyDialogFragment();
+                myDialogFragment.onCreateDialog();
+
                 myDiagnos = "";
             }
         });
@@ -302,14 +314,14 @@ public class DiagnosticActivity extends AppCompatActivity {
                 j++;
             }
             if (check){
-                myDiagnos += diagnos[i] + "\n";
+                myDiagnos += " - " + diagnos[i] + "\n";
             }
             check = true;
             j = 0;
         }
 
         if (myDiagnos.length() == 0){
-            myDiagnos += diagnos[0];
+            myDiagnos = diagnos[0];
         }
     }
 
@@ -322,5 +334,42 @@ public class DiagnosticActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility( View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
                 | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+    }
+
+    //диалоговое окно с диагнозом
+
+    public class MyDialogFragment extends AppCompatDialogFragment {
+
+        AlertDialog.Builder builder;
+
+        @NonNull
+        public Dialog onCreateDialog() {
+
+            if (myDiagnos == diagnos[0]){
+                builder = new AlertDialog.Builder(DiagnosticActivity.this);
+                builder.setTitle("Всё в порядке, ваш автомобиль: ")
+                        .setMessage(myDiagnos)
+                        .setIcon(R.drawable.check_green)
+                        .setPositiveButton("ОК", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Закрываем окно
+                                dialog.cancel();
+                            }
+                        });
+            }
+            else {
+                builder = new AlertDialog.Builder(DiagnosticActivity.this);
+                builder.setTitle("Рекомендации для ремонта!")
+                        .setMessage(myDiagnos)
+                        .setIcon(R.drawable.check_red)
+                        .setPositiveButton("ОК, я все понял!", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // Закрываем окно
+                                dialog.cancel();
+                            }
+                        });
+            }
+            return builder.show();
+        }
     }
 }

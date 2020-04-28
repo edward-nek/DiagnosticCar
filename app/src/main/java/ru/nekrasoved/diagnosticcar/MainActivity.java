@@ -16,6 +16,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -77,10 +78,17 @@ public class MainActivity extends AppCompatActivity {
         btDiagnos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, DiagnosticActivity.class);
-                startActivity(intent);
-                overridePendingTransition(0, 0);
-                finish();
+
+                cursor = dataDB.getAllData();
+                if (cursor.getCount() > 0) {
+                    Intent intent = new Intent(MainActivity.this, DiagnosticActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    finish();
+                }
+                else {
+                    Toast.makeText(MainActivity.this,"Для начала добавьте данные логов!", Toast.LENGTH_LONG).show();
+                }
             }
         });
 
