@@ -12,7 +12,8 @@
     <color name="header">#DB001B</color> <!-- #FFFFFF -->
     <color name="text_header">#F5F5F5</color>
     <color name="line">#34000000</color> <!-- #000000 -->
-    <color name="button">#00a480</color> <!-- #00a480 -->
+    <color name="button">#99DB001B</color> <!-- #00a480 -->
     <color name="background">#F5F5F5</color> <!-- #006b53 -->
+    <color name="button_text">#F5F5F5</color>
 
 </resources>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".AddLog">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+
+        app:srcCompat="@drawable/logo_add"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+
+    <ImageView
+        android:id="@+id/ivRul"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/bienie_rulya"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"/>
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swRul"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="Биение руля:    "
+        android:textSize="10dp"
+        android:textOff="нет"
+        android:textOn="да"
+        android:checked="false"
+
+        app:showText="true"
+        android:autoSizeMaxTextSize="8dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"/>
+
+    <ImageView
+        android:id="@+id/iv_car"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/car"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"/>
+
+
+    <androidx.appcompat.widget.SwitchCompat
+        android:id="@+id/swCar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:textSize="10dp"
+        android:textOff="нет"
+        android:textOn="да"
+        android:hint="Толчки авто:   "
+        android:checked="false"
+
+        app:showText="true"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"/>
+
+    <ImageView
+        android:id="@+id/iv_kolesa"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/davlenie_koles"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"
+        />
+
+
+    <EditText
+        android:id="@+id/etKolesa"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="10dp"
+        android:hint="Давление в шинах:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"/>
+
+    <ImageView
+        android:id="@+id/iv_maslo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/davlenie_masla"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"/>
+
+    <EditText
+        android:id="@+id/etMaslo"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="10dp"
+        android:hint="Давление масла:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"/>
+
+    <ImageView
+        android:id="@+id/ivDate"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/date"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"/>
+
+    <EditText
+        android:id="@+id/etDate"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="date"
+        android:hint="Дата:"
+        android:textSize="10dp"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"/>
+
+    <ImageView
+        android:id="@+id/iv_akkum"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/napryzenie_akkuma"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"/>
+
+    <EditText
+        android:id="@+id/etAkkum"
+        android:layout_width="105dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="10dp"
+        android:hint="Напряжение в сети:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.35"/>
+
+
+    <ImageView
+        android:id="@+id/iv_oboroty"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/oboroty"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"/>
+
+    <EditText
+        android:id="@+id/etOboroty"
+        android:layout_width="105dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="10dp"
+        android:hint="Обороты двигателя:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45"/>
+
+
+    <ImageView
+        android:id="@+id/iv_benzin"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/rashod_benzina"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"/>
+
+    <EditText
+        android:id="@+id/etBenzin"
+        android:layout_width="105dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="10dp"
+        android:hint="Расход бензина:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.55"/>
+
+
+    <ImageView
+        android:id="@+id/iv_temper"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/temperatura"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"/>
+
+    <EditText
+        android:id="@+id/etTemper"
+        android:layout_width="105dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:textSize="10dp"
+        android:hint="Температура ДВС:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65"/>
+
+    <ImageView
+        android:id="@+id/ivTime"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+
+        app:srcCompat="@drawable/time"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"/>
+
+    <EditText
+        android:id="@+id/etTime"
+        android:layout_width="105dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="time"
+        android:textSize="10dp"
+
+        android:hint="Время:"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.75"/>
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:text="Сохранить"
+        android:background="@color/button"
+        android:textColor="@color/button_text"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.95"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

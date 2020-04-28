@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+
+    android:layout_height="70dp"
+
+    android:padding="10dp"
+    android:textColor="@color/dark"
+    android:textSize="20dp"
+    android:gravity="center"
+    android:background="@color/background">
+
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="44dp"
+        android:layout_height="51dp"
+
+        app:srcCompat="@drawable/image_log"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1" />
+
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <TextView
+        android:id="@+id/tvDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
+
+    <ImageView
+        android:id="@+id/ivRul"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/bienie_rulya"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <TextView
+        android:id="@+id/tvRul"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <ImageView
+        android:id="@+id/iv_car"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/car"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <TextView
+        android:id="@+id/tvCar"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <ImageView
+        android:id="@+id/iv_kolesa"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/davlenie_koles"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"
+        />
+
+    <TextView
+        android:id="@+id/tvKolesa"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <ImageView
+        android:id="@+id/iv_maslo"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/davlenie_masla"
+
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <TextView
+        android:id="@+id/tvMaslo"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.63"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <ImageView
+        android:id="@+id/iv_akkum"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/napryzenie_akkuma"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <TextView
+        android:id="@+id/tvAkkum"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <ImageView
+        android:id="@+id/iv_oboroty"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/oboroty"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.7"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <TextView
+        android:id="@+id/tvOboroty"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.785"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <ImageView
+        android:id="@+id/iv_benzin"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/rashod_benzina"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <TextView
+        android:id="@+id/tvBenzin"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.1"/>
+
+    <ImageView
+        android:id="@+id/iv_temper"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+
+        app:srcCompat="@drawable/temperatura"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.85"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+
+    <TextView
+        android:id="@+id/tvTemper"
+        android:layout_width="30dp"
+        android:layout_height="15dp"
+        android:textSize="8dp"
+        android:text="TextVie"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1"/>
+</androidx.constraintlayout.widget.ConstraintLayout>
