@@ -179,6 +179,7 @@
         android:inputType="date"
         android:hint="Дата:"
         android:textSize="10dp"
+        android:longClickable="false"
 
         android:focusableInTouchMode="false"
         android:focusable="false"
@@ -334,6 +335,7 @@
         android:ems="10"
         android:inputType="time"
         android:textSize="10dp"
+        android:longClickable="false"
 
         android:hint="Время:"
 
@@ -348,7 +350,7 @@
         app:layout_constraintVertical_bias="0.75"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btSave"
         android:layout_width="100dp"
         android:layout_height="40dp"
         android:text="Сохранить"

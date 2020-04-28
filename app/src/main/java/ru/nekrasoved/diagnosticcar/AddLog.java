@@ -6,9 +6,11 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TimePicker;
+import android.widget.Toast;
 
 import java.util.Calendar;
 
@@ -16,6 +18,16 @@ public class AddLog extends AppCompatActivity {
 
     EditText etDate;
     EditText etTime;
+    EditText etKolesa;
+    EditText etMaslo;
+    EditText etAkkum;
+    EditText etOboroty;
+    EditText etBenzin;
+    EditText etTemper;
+
+    Button btSave;
+
+
     Calendar dateAndTime=Calendar.getInstance();
 
     @Override
@@ -25,6 +37,13 @@ public class AddLog extends AppCompatActivity {
 
         etDate = (EditText) findViewById(R.id.etDate);
         etTime = (EditText) findViewById(R.id.etTime);
+        etKolesa = (EditText) findViewById(R.id.etKolesa);
+        etMaslo = (EditText) findViewById(R.id.etMaslo);
+        etAkkum = (EditText) findViewById(R.id.etAkkum);
+        etOboroty = (EditText) findViewById(R.id.etOboroty);
+        etBenzin = (EditText) findViewById(R.id.etBenzin);
+        etTemper = (EditText) findViewById(R.id.etTemper);
+
 
         etDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -39,6 +58,25 @@ public class AddLog extends AppCompatActivity {
                 setTime();
             }
         });
+
+        btSave = (Button) findViewById(R.id.btSave);
+
+        btSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if ((etDate.getText().toString().length() > 0)&&(etTime.getText().toString().length() > 0)&&
+                        (etKolesa.getText().toString().length() > 0)&&(etMaslo.getText().toString().length() > 0)&&
+                        (etAkkum.getText().toString().length() > 0) &&(etOboroty.getText().toString().length() > 0)&&
+                        (etBenzin.getText().toString().length() > 0)&&(etTemper.getText().toString().length() > 0)) {
+
+                }
+                else {
+                    Toast.makeText(AddLog.this,"Для начала заполните поля!", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
 
     }
 
