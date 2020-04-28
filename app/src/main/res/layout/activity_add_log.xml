@@ -180,6 +180,9 @@
         android:hint="Дата:"
         android:textSize="10dp"
 
+        android:focusableInTouchMode="false"
+        android:focusable="false"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -333,6 +336,9 @@
         android:textSize="10dp"
 
         android:hint="Время:"
+
+        android:focusableInTouchMode="false"
+        android:focusable="false"
 
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
