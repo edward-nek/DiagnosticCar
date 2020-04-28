@@ -9,11 +9,17 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
+
+import java.util.ArrayList;
 
 public class DiagnosticActivity extends AppCompatActivity {
 
-    int N = 8; //количество характеристик у записи
+    int N = 8; //количество признаков
+    int K = 11; //количество диагнозов
 
     boolean[] checkLogs;
     float[][] diapasonLogs;
@@ -22,6 +28,15 @@ public class DiagnosticActivity extends AppCompatActivity {
     Cursor cursor;
 
     ImageView ivCheck;
+
+    Button btHelp;
+
+    String[] diagnos;
+    int[][] parametr;
+    ArrayList<Integer> spisokProblem;
+
+    String myDiagnos = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,9 +51,14 @@ public class DiagnosticActivity extends AppCompatActivity {
         checkLogs = new boolean[N];
         diapasonLogs = new float[N][2];
 
+        diagnos = new String[K];
+        parametr = new int[K][N];
+        spisokProblem = new ArrayList<>();
+
         for (int i = 0; i < N; i++){
             checkLogs[i] = false;
         }
+
         setDiapason();
 
         dataDB = new DataDB(this);
@@ -46,6 +66,16 @@ public class DiagnosticActivity extends AppCompatActivity {
 
         setCheck();
 
+        btHelp = (Button) findViewById(R.id.btHelp);
+        btHelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setDiagnos();
+                getDiagnos();
+                Toast.makeText(DiagnosticActivity.this, myDiagnos, Toast.LENGTH_LONG).show();
+                myDiagnos = "";
+            }
+        });
 
     }
 
@@ -66,32 +96,37 @@ public class DiagnosticActivity extends AppCompatActivity {
                 if ((cursor.getInt(oborotyDvsIndex) < diapasonLogs[0][0])||(cursor.getInt(oborotyDvsIndex) > diapasonLogs[0][1])){
                     checkLogs[0] = true;
                 }
-                if ((cursor.getInt(pressureWheelsIndex) < diapasonLogs[1][0])||(cursor.getInt(pressureWheelsIndex) > diapasonLogs[1][1])){
-                    checkLogs[0] = true;
+
+                if ((cursor.getFloat(pressureWheelsIndex) < diapasonLogs[1][0])||(cursor.getFloat(pressureWheelsIndex) > diapasonLogs[1][1])){
+                    checkLogs[1] = true;
                 }
-                if ((cursor.getInt(voltageIndex) < diapasonLogs[2][0])||(cursor.getInt(voltageIndex) > diapasonLogs[2][1])){
-                    checkLogs[0] = true;
+
+                if ((cursor.getFloat(voltageIndex) < diapasonLogs[2][0])||(cursor.getFloat(voltageIndex) > diapasonLogs[2][1])){
+                    checkLogs[2] = true;
                 }
+
                 if ((cursor.getInt(temperatureIndex) < diapasonLogs[3][0])||(cursor.getInt(temperatureIndex) > diapasonLogs[3][1])){
-                    checkLogs[0] = true;
+                    checkLogs[3] = true;
                 }
-                if ((cursor.getInt(gasConsumptionIndex) < diapasonLogs[4][0])||(cursor.getInt(gasConsumptionIndex) > diapasonLogs[4][1])){
-                    checkLogs[0] = true;
+
+                if ((cursor.getFloat(gasConsumptionIndex) < diapasonLogs[4][0])||(cursor.getFloat(gasConsumptionIndex) > diapasonLogs[4][1])){
+                    checkLogs[4] = true;
                 }
-                if ((cursor.getInt(pressureOilIndex) < diapasonLogs[5][0])||(cursor.getInt(pressureOilIndex) > diapasonLogs[5][1])){
-                    checkLogs[0] = true;
+                if ((cursor.getFloat(pressureOilIndex) < diapasonLogs[5][0])||(cursor.getFloat(pressureOilIndex) > diapasonLogs[5][1])){
+                    checkLogs[5] = true;
                 }
-                if ((cursor.getInt(bienieRulyaIndex) < diapasonLogs[6][0])||(cursor.getInt(oborotyDvsIndex) > diapasonLogs[6][1])){
-                    checkLogs[0] = true;
+                if ((cursor.getInt(bienieRulyaIndex) < diapasonLogs[6][0])||(cursor.getInt(bienieRulyaIndex) > diapasonLogs[6][1])){
+                    checkLogs[6] = true;
                 }
                 if ((cursor.getInt(carShocksIndex) < diapasonLogs[7][0])||(cursor.getInt(carShocksIndex) > diapasonLogs[7][1])){
-                    checkLogs[0] = true;
+                    checkLogs[7] = true;
                 }
+
             } while (cursor.moveToNext());
         }
 
         for (int i = 0; i < N; i++){
-            Log.d("checkLogs", checkLogs[i] + " ");
+            Log.d("checkLogs", i + ") " +checkLogs[i] + " ");
         }
 
     }
@@ -190,4 +225,65 @@ public class DiagnosticActivity extends AppCompatActivity {
         return true;
     }
 
+    public void setDiagnos() {
+
+        for (int i = 0; i < N; i++){
+            if (checkLogs[i]){
+                spisokProblem.add(i);
+            }
+        }
+
+        for (int i = 0; i < K; i++ ){
+            for (int j = 0; j < N; j++){
+                parametr[i][j] = -1;
+            }
+        }
+
+        diagnos[0] = "Исправен";
+        diagnos[1] = "Неисправен датчик положения дроссельной заслонки";
+        parametr[1][0] = 0;
+        diagnos[2] = "Спущенные колёса";
+        parametr[2][0] = 1;
+        diagnos[3] = "Неисправна работа генератора";
+        parametr[3][0] = 2;
+        diagnos[4] = "Неисправен масляный насос";
+        parametr[4][0] = 3;
+        parametr[4][1] = 5;
+        diagnos[5] = "Отсутствует нужный уровень масла в ДВС";
+        parametr[5][0] = 5;
+        diagnos[6] = "Отсутствует нужный уровень антифриза в радиаторе";
+        parametr[6][0] = 3;
+        diagnos[7] = "Неисправен датчик лямбда";
+        parametr[7][0] = 4;
+        diagnos[8] = "Неисправна дроссельная заслонка";
+        parametr[8][0] = 0;
+        parametr[8][1] = 4;
+        diagnos[9] = "Не выставлен развал-схождение";
+        parametr[9][0] = 6;
+        diagnos[10] = "Неисправна работа АКПП";
+        parametr[10][0] = 7;
+
+    }
+    public void getDiagnos() {
+        int j = 0;
+        Log.d("Spisok-Problem", spisokProblem.toString());
+        boolean check = true;
+        for (int i = 1; i < K; i++){
+            while (parametr[i][j] != -1){
+                if (!spisokProblem.contains(parametr[i][j])){
+                    check = false;
+                }
+                j++;
+            }
+            if (check){
+                myDiagnos += diagnos[i] + "\n";
+            }
+            check = true;
+            j = 0;
+        }
+
+        if (myDiagnos.length() == 0){
+            myDiagnos += diagnos[0];
+        }
+    }
 }
