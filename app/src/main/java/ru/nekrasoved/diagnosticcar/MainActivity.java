@@ -8,9 +8,11 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.ContextMenu;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -24,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     SimpleCursorAdapter scAdapter;
 
+    private static final int CM_DELETE_ID = 1;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -35,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DB001B")));
 
         listView = (ListView) findViewById(R.id.lvDate);
+        dataDB = new DataDB(this);
+        dataDB.open();
 
         showList();
 
@@ -56,8 +62,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showList() {
-        dataDB = new DataDB(this);
-        dataDB.open();
         cursor = dataDB.getAllData();
 
         // формируем столбцы сопоставления
@@ -76,5 +80,25 @@ public class MainActivity extends AppCompatActivity {
         // добавляем контекстное меню к списку
         registerForContextMenu(listView);
     }
+
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo);
+        menu.add(0, CM_DELETE_ID, 0, "Удалить");
+    }
+
+    public boolean onContextItemSelected(MenuItem item) {
+        if (item.getItemId() == CM_DELETE_ID) {
+            // получаем из пункта контекстного меню данные по пункту списка
+            AdapterView.AdapterContextMenuInfo acmi = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            // извлекаем id записи и удаляем соответствующую запись в БД
+            dataDB.delRec(acmi.id);
+            // обновляем курсор
+            cursor.requery();
+            return true;
+        }
+        return super.onContextItemSelected(item);
+    }
+
 
 }
