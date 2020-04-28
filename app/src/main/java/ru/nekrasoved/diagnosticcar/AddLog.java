@@ -1,10 +1,17 @@
 package ru.nekrasoved.diagnosticcar;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SwitchCompat;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
@@ -27,6 +34,12 @@ public class AddLog extends AppCompatActivity {
 
     Button btSave;
 
+    SwitchCompat swRul;
+    SwitchCompat swCar;
+
+    DataDB dataDB;
+    Cursor cursor;
+
 
     Calendar dateAndTime=Calendar.getInstance();
 
@@ -34,6 +47,11 @@ public class AddLog extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_log);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Добавление данных: ");
+        actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DB001B")));
+        actionBar.setDisplayHomeAsUpEnabled(true);
 
         etDate = (EditText) findViewById(R.id.etDate);
         etTime = (EditText) findViewById(R.id.etTime);
@@ -43,6 +61,10 @@ public class AddLog extends AppCompatActivity {
         etOboroty = (EditText) findViewById(R.id.etOboroty);
         etBenzin = (EditText) findViewById(R.id.etBenzin);
         etTemper = (EditText) findViewById(R.id.etTemper);
+
+        swRul = (SwitchCompat) findViewById(R.id.swRul);
+        swCar = (SwitchCompat) findViewById(R.id.swCar);
+
 
 
         etDate.setOnClickListener(new View.OnClickListener() {
@@ -69,6 +91,12 @@ public class AddLog extends AppCompatActivity {
                         (etAkkum.getText().toString().length() > 0) &&(etOboroty.getText().toString().length() > 0)&&
                         (etBenzin.getText().toString().length() > 0)&&(etTemper.getText().toString().length() > 0)) {
 
+                    saveLog();
+
+                    Intent intent = new Intent(AddLog.this, MainActivity.class);
+                    startActivity(intent);
+                    overridePendingTransition(0, 0);
+                    finish();
                 }
                 else {
                     Toast.makeText(AddLog.this,"Для начала заполните поля!", Toast.LENGTH_LONG).show();
@@ -78,6 +106,54 @@ public class AddLog extends AppCompatActivity {
 
 
 
+    }
+
+    public void saveLog(){
+        dataDB = new DataDB(this);
+        dataDB.open();
+
+        String date = etDate.getText().toString() + " " + etTime.getText().toString();
+        int oboroty_dvs = Integer.valueOf(etOboroty.getText().toString());
+        float pressure_wheels = Float.valueOf(etKolesa.getText().toString());
+        float voltage = Float.valueOf(etAkkum.getText().toString());
+        int temperature = Integer.valueOf(etTemper.getText().toString());
+        float gas_consumption = Float.valueOf(etBenzin.getText().toString());
+        float pressure_oil = Float.valueOf(etMaslo.getText().toString());
+
+        boolean bienie_rulya = swRul.isChecked();
+        boolean car_shocks = swCar.isChecked();
+
+        dataDB.addRec(date, oboroty_dvs, pressure_wheels, voltage, temperature, gas_consumption,
+                pressure_oil, bienie_rulya, car_shocks);
+
+        cursor = dataDB.getAllData();
+
+        if (cursor.moveToFirst()) {
+
+            int idIndex = cursor.getColumnIndex(DataDB.KEY_ID);
+            int dateIndex = cursor.getColumnIndex(DataDB.KEY_DATE);
+            int oborotyDvsIndex = cursor.getColumnIndex(DataDB.KEY_OBOROTY_DVS);
+            int pressureWheelsIndex = cursor.getColumnIndex(DataDB.KEY_PRESSURE_WHEELS);
+            int voltageIndex = cursor.getColumnIndex(DataDB.KEY_VOLTAGE);
+            int temperatureIndex = cursor.getColumnIndex(DataDB.KEY_TEMPERATURE);
+            int gasConsumptionIndex = cursor.getColumnIndex(DataDB.KEY_GAS_CONSUMPTION);
+            int pressureOilIndex = cursor.getColumnIndex(DataDB.KEY_PRESSURE_OIL);
+            int bienieRulyaIndex = cursor.getColumnIndex(DataDB.KEY_BIENIE_RULYA);
+            int carShocksIndex = cursor.getColumnIndex(DataDB.KEY_CAR_SHOCKS);
+
+            do {
+                Log.d("saveLog", "id = " + cursor.getInt(idIndex) + "  " +
+                        "Дата = " + cursor.getInt(dateIndex) + "  " +
+                        "Обороты ДВС = " + cursor.getInt(oborotyDvsIndex) + "  " +
+                        "Давление колес = " + cursor.getInt(pressureWheelsIndex) + "  " +
+                        "Напряжение аккумулятора = " + cursor.getInt(voltageIndex) + "  " +
+                        "Температура двигателя = " + cursor.getInt(temperatureIndex) + "  " +
+                        "Расход топлива = " + cursor.getInt(gasConsumptionIndex) + "  " +
+                        "Давление масла = " + cursor.getInt(pressureOilIndex) + "  " +
+                        "Биение руля = " + cursor.getInt(bienieRulyaIndex) + "  " +
+                        "Толчки авто = " + cursor.getInt(carShocksIndex) + "  ");
+            } while (cursor.moveToNext());
+        }
     }
 
     public void setDate() {
@@ -95,18 +171,25 @@ public class AddLog extends AppCompatActivity {
                 .show();
     }
 
-    // установка обработчика выбора времени
     TimePickerDialog.OnTimeSetListener t=new TimePickerDialog.OnTimeSetListener() {
         public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
             etTime.setText(hourOfDay + ":" + minute);
         }
     };
 
-    // установка обработчика выбора даты
     DatePickerDialog.OnDateSetListener d=new DatePickerDialog.OnDateSetListener() {
         public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
             etDate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
         }
     };
+
+    @Override
+    public boolean onSupportNavigateUp(){
+        Intent intent = new Intent(AddLog.this, MainActivity.class);
+        startActivity(intent);
+        overridePendingTransition(0, 0);
+        finish();
+        return true;
+    }
 
 }

@@ -3,10 +3,13 @@ package ru.nekrasoved.diagnosticcar;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -35,25 +38,24 @@ public class MainActivity extends AppCompatActivity {
 
     public void showList(){
         dataDB = new DataDB(this);
+        dataDB.open();
         cursor = dataDB.getAllData();
 
-        list = new ArrayList<>();
+    }
 
-        if (cursor.moveToFirst()) {
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+    }
 
-            int idIndex = cursor.getColumnIndex(DataDB.KEY_ID);
-            int dateIndex = cursor.getColumnIndex(DataDB.KEY_DATE);
-
-
-            do {
-                list.add(idIndex,  cursor.getString(idIndex) +
-                        ") " + cursor.getString(dateIndex) + " ");
-
-            } while (cursor.moveToNext());
-        }
-
-
-
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        Intent intent = new Intent(MainActivity.this, AddLog.class);
+        startActivity(intent);
+        overridePendingTransition(0, 0);
+        finish();
+        return true;
     }
 
 }
