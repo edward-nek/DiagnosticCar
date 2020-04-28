@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DiagnosticActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/ivRul"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/bienie_rulya" />
+
+            <TextView
+                android:id="@+id/swRul"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:text="Биение руля"
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck0"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:id="@+id/iv_car"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/car" />
+
+            <TextView
+                android:id="@+id/swCar"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Толчки автомобиля"
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_kolesa"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/davlenie_koles"
+
+                />
+
+            <TextView
+                android:id="@+id/etKolesa"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Давление в шинах"
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_maslo"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/davlenie_masla"
+
+                />
+
+            <TextView
+                android:id="@+id/etMaslo"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Давление масла"
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_temper"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/temperatura"
+
+                />
+
+            <TextView
+                android:id="@+id/etTemper"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Температура ДВС"
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_oboroty"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/oboroty"
+
+                />
+
+            <TextView
+                android:id="@+id/etBenzin"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Расход бензина"
+
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck5"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_benzin"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/rashod_benzina"
+
+                />
+
+            <TextView
+                android:id="@+id/etOboroty"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Обороты двигателя"
+
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck6"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="63dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/iv_akkum"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                app:srcCompat="@drawable/napryzenie_akkuma"
+
+                />
+
+            <TextView
+                android:id="@+id/etAkkum"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+
+                android:text="Напряжение в сети:"
+
+                android:textSize="20dp"
+
+                android:layout_marginLeft="30dp"
+                android:layout_marginTop="10dp"
+                />
+
+            <ImageView
+                android:id="@+id/ivCheck7"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+
+                android:layout_marginLeft="20dp"
+
+                app:srcCompat="@drawable/check_green" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btHelp"
+            android:layout_width="170dp"
+            android:layout_height="40dp"
+            android:text="Получить диагноз"
+            android:background="@color/button"
+            android:textColor="@color/button_text"
+
+            android:layout_marginLeft="110dp"
+            android:layout_marginTop="10dp"/>
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

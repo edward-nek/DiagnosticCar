@@ -13,6 +13,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
@@ -25,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
 
     ListView listView;
     SimpleCursorAdapter scAdapter;
+
+    Button btDiagnos;
 
     private static final int CM_DELETE_ID = 1;
 
@@ -43,6 +46,18 @@ public class MainActivity extends AppCompatActivity {
         dataDB.open();
 
         showList();
+
+        btDiagnos = (Button) findViewById(R.id.btDiagnos);
+
+        btDiagnos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, DiagnosticActivity.class);
+                startActivity(intent);
+                overridePendingTransition(0, 0);
+                finish();
+            }
+        });
 
     }
 
