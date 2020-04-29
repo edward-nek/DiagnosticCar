@@ -4,6 +4,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SwitchCompat;
 
+import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
@@ -12,10 +13,12 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -32,6 +35,8 @@ public class AddLog extends AppCompatActivity {
     EditText etBenzin;
     EditText etTemper;
 
+    TextView tvHelp;
+
     Button btSave;
 
     SwitchCompat swRul;
@@ -43,6 +48,7 @@ public class AddLog extends AppCompatActivity {
 
     Calendar dateAndTime=Calendar.getInstance();
 
+    @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -79,14 +85,73 @@ public class AddLog extends AppCompatActivity {
         actionBar.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#DB001B")));
         actionBar.setDisplayHomeAsUpEnabled(true);
 
+        tvHelp = (TextView) findViewById(R.id.tvHelp);
+
         etDate = (EditText) findViewById(R.id.etDate);
         etTime = (EditText) findViewById(R.id.etTime);
+
         etKolesa = (EditText) findViewById(R.id.etKolesa);
+        etKolesa.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tvHelp.setText("Давление в шинах - Норма [ 2.0 ; 2.2 ]");
+                return false;
+            }
+        });
+
         etMaslo = (EditText) findViewById(R.id.etMaslo);
+        etMaslo.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tvHelp.setText("Давление масла - Норма [ 3.5 ; 7.0 ]");
+                return false;
+            }
+        });
+
+
         etAkkum = (EditText) findViewById(R.id.etAkkum);
+        etAkkum.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tvHelp.setText("Напряжение в сети - Норма [ 13.5 ; 14.5 ]");
+                return false;
+            }
+        });
+
+
         etOboroty = (EditText) findViewById(R.id.etOboroty);
+        etOboroty.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tvHelp.setText("Обороты двигателя - Норма [ 650 ; 800 ]");
+                return false;
+            }
+        });
+
+
         etBenzin = (EditText) findViewById(R.id.etBenzin);
+        etBenzin.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tvHelp.setText("Расход бензина - Норма [ 0.0 ; 16.0 ]");
+                return false;
+            }
+        });
+
         etTemper = (EditText) findViewById(R.id.etTemper);
+        etTemper.setOnTouchListener(new View.OnTouchListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                tvHelp.setText("Температура ДВС - Норма [ 0 ; 100 ]");
+                return false;
+            }
+        });
 
         swRul = (SwitchCompat) findViewById(R.id.swRul);
         swCar = (SwitchCompat) findViewById(R.id.swCar);
