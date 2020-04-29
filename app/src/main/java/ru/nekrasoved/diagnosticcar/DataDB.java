@@ -81,10 +81,35 @@ public class DataDB {
         database.insert(TABLE_LOGS, null, cv);
     }
 
+    public void addRec(int id, String date, Integer oboroty_dvs, float pressure_wheels,
+                       float voltage, Integer temperature, float gas_consumption,
+                       float pressure_oil, boolean bienie_rulya, boolean car_shocks) {
+        ContentValues cv = new ContentValues();
+        cv.put(KEY_ID, id);
+        cv.put(KEY_DATE, date);
+        cv.put(KEY_OBOROTY_DVS, oboroty_dvs);
+        cv.put(KEY_PRESSURE_WHEELS, pressure_wheels);
+        cv.put(KEY_VOLTAGE, voltage);
+        cv.put(KEY_TEMPERATURE, temperature);
+        cv.put(KEY_GAS_CONSUMPTION, gas_consumption);
+        cv.put(KEY_PRESSURE_OIL, pressure_oil);
+        cv.put(KEY_BIENIE_RULYA, bienie_rulya);
+        cv.put(KEY_CAR_SHOCKS, car_shocks);
+
+        database.insert(TABLE_LOGS, null, cv);
+    }
+
 
     // удалить запись из DB_TABLE
     public void delRec(long id) {
         database.delete(TABLE_LOGS, KEY_ID + " = " + id, null);
+    }
+
+    // получить запись по id
+    public Cursor getRec(long id){
+
+        String query = "SELECT * FROM " + TABLE_LOGS + " WHERE " + KEY_ID + "=" + id;
+        return database.rawQuery(query, null);
     }
 
 

@@ -30,7 +30,10 @@ public class MainActivity extends AppCompatActivity {
 
     Button btDiagnos;
 
+    public static int idCorrect;
+
     private static final int CM_DELETE_ID = 1;
+    private static final int CM_EDIT_ID = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                                     ContextMenu.ContextMenuInfo menuInfo) {
         super.onCreateContextMenu(menu, v, menuInfo);
         menu.add(0, CM_DELETE_ID, 0, "Удалить");
+        menu.add(1, CM_EDIT_ID, 1, "Редактировать");
     }
 
     public boolean onContextItemSelected(MenuItem item) {
@@ -144,6 +148,15 @@ public class MainActivity extends AppCompatActivity {
             // обновляем курсор
             cursor.requery();
             return true;
+        }
+        else if (item.getItemId() == CM_EDIT_ID){
+            AdapterView.AdapterContextMenuInfo acmi = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+            idCorrect = (int) acmi.id;
+
+            Intent intent = new Intent(MainActivity.this, CorrectLog.class);
+            startActivity(intent);
+            overridePendingTransition(0, 0);
+            finish();
         }
         return super.onContextItemSelected(item);
     }
